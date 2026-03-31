@@ -13,9 +13,20 @@ namespace AutoShop_ASPNET.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public string Index()
         {
-            return View();
+            string result = String.Empty;
+
+            for (int i = 1; i <= 3; i++)
+            {
+                var product = new Product { Id = $"Id{i}", Name = $"Name{i}", Cost = $"Cost{i}" };
+                result += $"{product.Id} \n";
+                result += $"{product.Name} \n";
+                result += $"{product.Cost} \n";
+                result += $"\n";
+            }
+
+            return result;
         }
 
         public IActionResult Privacy()
