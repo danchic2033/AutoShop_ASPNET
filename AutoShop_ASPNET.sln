@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36705.20 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoShop_ASPNET", "AutoShop_ASPNET\AutoShop_ASPNET.csproj", "{8FEECFD6-A80A-4A92-B349-1DB0E209B0FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FEECFD6-A80A-4A92-B349-1DB0E209B0FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FEECFD6-A80A-4A92-B349-1DB0E209B0FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FEECFD6-A80A-4A92-B349-1DB0E209B0FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FEECFD6-A80A-4A92-B349-1DB0E209B0FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {66089EAC-FC2D-4DF5-8847-EDA280E61778}
+	EndGlobalSection
+EndGlobal
