@@ -17,7 +17,7 @@ namespace AutoShop_ASPNET
             app.MapStaticAssets();
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Calculator}/{action=index}/{num1?}/{num2?}")
+                pattern: "{controller=Calculator}/{action=index}/{num1?}/{num2?}/{symbol?}")
                 .WithStaticAssets();
 
             app.Run();
