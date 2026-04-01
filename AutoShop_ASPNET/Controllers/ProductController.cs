@@ -1,4 +1,4 @@
-﻿using AutoShop_ASPNET.Models;
+﻿using AutoShop_ASPNET.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AutoShop_ASPNET.Controllers
@@ -7,14 +7,14 @@ namespace AutoShop_ASPNET.Controllers
     {
         public string Index(int id)
         {
-            string result = string.Empty;
-            for (int i = 0; i < 10; i++)
-            {
-                
+            var product = ProductsRepository.TryGetById(id);
 
+            if (product == null)
+            {
+                return $"Товара с Id {id} не существует";
             }
 
-            return result;
+            return $"{product}{product.Description}";
         }
     }
 }
