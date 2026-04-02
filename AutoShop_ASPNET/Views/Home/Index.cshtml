@@ -2,17 +2,27 @@
 
 <div class = "container">
     <div class ="row">
-        @foreach (var product in Model)
-        {   <div class = "col-4 mb-4">
-                <div class="card" style="width: 18rem;">
-                  <img src="/img/stopPhoto.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">@product.Name</h5>
-                    <p class="card-text">@product.Description</p>
-                    <a href="#" class="btn btn-primary">В корзину</a>
-                  </div>
+        @if (Model != null)
+        {
+            @foreach (var product in Model)
+            {   
+                <div class = "col-4 mb-4">
+                    <a asp-controller="product" asp-action="index" asp-route-id="@product.Id" class="text-decoration-none text-dark">
+                    <div class="card" style="width: 18rem;">
+                      <img src="/img/stopPhoto.jpg" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h5 class="card-title">@product.Name</h5>
+                        <p clss = "cart-cost">@product.Cost.ToString("c")</p>
+                        <a href="#" class="btn btn-primary">В корзину</a>
+                      </div>
+                    </div>
+                    </a>
                 </div>
-            </div>
+            }
+        }
+        else
+        {
+            <h5>Нет товаров для отображения</h5>
         }
     </div>
 </div>

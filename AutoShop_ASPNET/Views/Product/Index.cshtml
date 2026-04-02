@@ -1,0 +1,26 @@
+﻿@model Product
+
+@if (Model != null)
+{
+	<div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+            <img src="/img/stopPhoto.jpg" class="card-img-top" alt="...">
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <p class="card-cost">Цена: @Model.Cost.ToString("c")</p>
+            <p class="card-text">@Model.Description.</p>
+            <a href="#" class="btn btn-primary">Добавить в корзину</a>
+          </div>
+        </div>
+      </div>
+    </div>
+}
+else
+{
+	<h5>Нет товара для отображения</h5>
+}
