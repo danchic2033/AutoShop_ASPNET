@@ -75,14 +75,14 @@
 
                   <div class="d-flex justify-content-between mb-4">
                     <h5 class="text-uppercase">Количество товара: @Model.CartItems.Count</h5>
-                    <h5>@Model.CartItems.Select(item => item.ItemCost).Sum()</h5>
+                    <h5>@Model.TotalCost</h5>
                   </div>
 
                   <hr class="my-4">
 
                   <div class="d-flex justify-content-between mb-5">
                     <h5 class="text-uppercase">К оплате:</h5>
-                    <h5>@Model.CartItems.Select(item => item.ItemCost).Sum()</h5>
+                    <h5>@Model.TotalCost</h5>
                   </div>
 
                   <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-dark btn-block btn-lg"

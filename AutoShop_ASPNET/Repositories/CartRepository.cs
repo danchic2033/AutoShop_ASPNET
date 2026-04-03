@@ -12,7 +12,6 @@ namespace AutoShop_ASPNET.Repositories
             var cartItem = new CartItem();
             cartItem.Product = product;
             cartItem.ItemQuantity = itemQuantity;
-            cartItem.ItemCost = itemCost;
 
             _cartItemsList.Add(cartItem);
         }
