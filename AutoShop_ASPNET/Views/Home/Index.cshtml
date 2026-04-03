@@ -13,7 +13,7 @@
                       <div class="card-body">
                         <h5 class="card-title">@product.Name</h5>
                         <p clss = "cart-cost">@product.Cost.ToString("c")</p>
-                        <a href="#" class="btn btn-primary">В корзину</a>
+                        <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@product.Id" class="btn btn-primary">Добавить в корзину</a>
                       </div>
                     </div>
                     </a>
