@@ -7,7 +7,7 @@ namespace AutoShop_ASPNET.Repositories
         private List<CartItem> _cartItemsList;
         private Cart _cart;
 
-        public void AddItemToCart(Product product, int itemQuantity, decimal itemCost)
+        public void AddItemToCart(Product product, int itemQuantity)
         {
             var cartItem = new CartItem();
             cartItem.Product = product;
