@@ -6,10 +6,10 @@ namespace AutoShop_ASPNET.Controllers
 {
     public class CartController : Controller
     {
-        private readonly CartRepository _cartRepository;
-        private readonly ProductsRepository _productsRepository;
+        private readonly ICartRepository _cartRepository;
+        private readonly IProductsRepository _productsRepository;
 
-        public CartController(CartRepository cartRepository, ProductsRepository productsRepository)
+        public CartController(ICartRepository cartRepository, IProductsRepository productsRepository)
         {
             _cartRepository = cartRepository;
             _productsRepository = productsRepository;

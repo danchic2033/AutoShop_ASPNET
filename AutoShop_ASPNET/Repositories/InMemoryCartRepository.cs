@@ -2,7 +2,7 @@
 
 namespace AutoShop_ASPNET.Repositories
 {
-    public class CartRepository
+    public class InMemoryCartRepository : ICartRepository
     {
         private List<CartItem> _cartItemsList;
         private Cart _cart;

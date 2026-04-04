@@ -1,0 +1,12 @@
+﻿using AutoShop_ASPNET.Models;
+
+namespace AutoShop_ASPNET.Repositories
+{
+    public interface ICartRepository
+    {
+        void AddItemToCart(Product product, int itemQuantity);
+        Cart GetCart();
+        void RemoveCart();
+        void RemoveItemFromCart(int id);
+    }
+}
