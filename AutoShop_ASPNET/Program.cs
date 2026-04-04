@@ -1,3 +1,5 @@
+using AutoShop_ASPNET.Repositories;
+
 namespace AutoShop_ASPNET
 {
     public class Program
@@ -8,6 +10,8 @@ namespace AutoShop_ASPNET
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddSingleton<ProductsRepository>();
+            builder.Services.AddSingleton<CartRepository>();
 
             var app = builder.Build();
 

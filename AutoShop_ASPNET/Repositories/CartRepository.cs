@@ -2,12 +2,12 @@
 
 namespace AutoShop_ASPNET.Repositories
 {
-    public static class CartRepository
+    public class CartRepository
     {
-        private static List<CartItem> _cartItemsList = new List<CartItem>();
-        private static Cart _cart = new Cart(_cartItemsList);
+        private List<CartItem> _cartItemsList;
+        private Cart _cart;
 
-        public static void AddItemToCart(Product product, int itemQuantity, decimal itemCost)
+        public void AddItemToCart(Product product, int itemQuantity, decimal itemCost)
         {
             var cartItem = new CartItem();
             cartItem.Product = product;
@@ -16,7 +16,7 @@ namespace AutoShop_ASPNET.Repositories
             _cartItemsList.Add(cartItem);
         }
 
-        public static void RemoveItemFromCart(int id)
+        public void RemoveItemFromCart(int id)
         {
             for (int i = 0; i < _cartItemsList.Count; i++)
             {
@@ -27,12 +27,12 @@ namespace AutoShop_ASPNET.Repositories
             }
         }
 
-        public static Cart GetCart()
+        public Cart GetCart()
         {
             return _cart;
         }
 
-        public static void RemoveCart()
+        public void RemoveCart()
         {
             if (_cart.CartItems.Count > 0)
             {
