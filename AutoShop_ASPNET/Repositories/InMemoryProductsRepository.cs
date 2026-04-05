@@ -2,12 +2,12 @@
 
 namespace AutoShop_ASPNET.Repositories
 {
-    public class ProductsRepository
+    public class InMemoryProductsRepository : IProductsRepository
     {
         private int _idProduct = 1;
         private readonly List<Product> _products;
 
-        public ProductsRepository() 
+        public InMemoryProductsRepository()
         {
             _products =
             [
