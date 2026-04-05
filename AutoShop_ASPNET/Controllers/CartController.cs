@@ -26,7 +26,7 @@ namespace AutoShop_ASPNET.Controllers
         {
             var product = _productsRepository.TryGetById(id);
 
-            _cartRepository.AddItemToCart(product, 1);
+            _cartRepository.AddItemToCart(product);
 
             return RedirectToAction("Index", "Home");
         }
