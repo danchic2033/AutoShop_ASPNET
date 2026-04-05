@@ -28,18 +28,18 @@
                           <h6 class="mb-0">@item.Product.Name</h6>
                         </div>
                         <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-@*                           <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                          <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
                             onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                             <i class="fas fa-minus"></i>
-                          </button> *@ @* кнопка уменьшения количества(не отображается) *@
+                          </button> 
 
                           <input id="form1" min="0" name="quantity" value="1" type="number"
                             class="form-control form-control-sm" />
 
-@*                           <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
+                          <button data-mdb-button-init data-mdb-ripple-init class="btn btn-link px-2"
                             onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                             <i class="fas fa-plus"></i>
-                          </button> *@ @* кнопка увеличения количества(не отображается) *@
+                          </button> 
                         </div>
                         <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                           <h6 class="mb-0">@item.ItemCost.ToString("c")</h6>
@@ -74,7 +74,7 @@
                   <hr class="my-4">
 
                   <div class="d-flex justify-content-between mb-4">
-                    <h5 class="text-uppercase">Количество товара: @Model.CartItems.Count</h5>
+                    <h5 class="text-uppercase">Количество товара: @(Model.CartItems.Count * Model.CartItems.Sum(item => item.ItemQuantity))</h5>
                     <h5>@Model.TotalCost</h5>
                   </div>
 
@@ -96,3 +96,4 @@
       </div>
     </div>
   </div>
+
