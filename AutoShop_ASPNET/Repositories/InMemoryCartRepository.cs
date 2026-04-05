@@ -43,14 +43,25 @@ namespace AutoShop_ASPNET.Repositories
             }
         }
 
-        public void RemoveItemFromCart(int id)
+        public void RemoveItemFromCart(Product product)
         {
-            for (int i = 0; i < _cart.CartItems.Count; i++)
+            var existingCart = _cart.CartItems.FirstOrDefault(item => item.Product == product);
+
+            //Дописать условие, чтобы при удалении продукта не выходить за границы
+
+            if (_cart.CartItems[product.Id - 1].ItemQuantity == 1 && existingCart != null)
             {
-                if (id == i)
+                for (int i = 0; i < _cart.CartItems.Count; i++)
                 {
-                    _cart.CartItems.RemoveAt(i);
+                    if (product.Id == _cart.CartItems[i].Product.Id)
+                    {
+                        _cart.CartItems.RemoveAt(i);
+                    }
                 }
+            }
+            else
+            {
+                _cart.CartItems[product.Id - 1].ItemQuantity--;
             }
         }
 

@@ -7,6 +7,6 @@ namespace AutoShop_ASPNET.Repositories
         void AddItemToCart(Product product);
         Cart GetCart();
         void RemoveCart();
-        void RemoveItemFromCart(int id);
+        void RemoveItemFromCart(Product product);
     }
 }

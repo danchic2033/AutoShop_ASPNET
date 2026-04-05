@@ -30,5 +30,31 @@ namespace AutoShop_ASPNET.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        public IActionResult IncreaseItemInCart(int id)
+        {
+            var product = _productsRepository.TryGetById(id);
+
+            _cartRepository.AddItemToCart(product);
+
+            return RedirectToAction("Index", "Cart");
+        }
+
+        public IActionResult DecreaseItemInCart(int id)
+        {
+            var product = _productsRepository.TryGetById(id);
+
+            _cartRepository.RemoveItemFromCart(product);
+
+            return RedirectToAction("Index", "Cart");
+        }
+
+        public IActionResult ClearCart(int id)
+        {
+            _cartRepository.RemoveCart();
+
+
+            return RedirectToAction("Index", "Cart");
+        }
     }
 }
