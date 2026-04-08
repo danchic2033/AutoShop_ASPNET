@@ -8,10 +8,10 @@ namespace AutoShop_ASPNET.Repositories
 
         public void AddItemToFavorite(Product product)
         {
-
+            //Нужно взять логику из класса Home
             if (_favorite != null)
             {
-                var existingCart = _favorite.Products.FirstOrDefault(item => item.Id == product.Id);
+                var existingCart = _favorite.Product.
 
                 if (existingCart != null)
                 {
@@ -36,27 +36,23 @@ namespace AutoShop_ASPNET.Repositories
             }
         }
 
-        //public void RemoveItemFromFavorite(Product product)
-        //{
-        //    var existingCart = _cart.CartItems.FirstOrDefault(item => item.Product == product);
+        public void RemoveItemFromFavorite(Product product)
+        {
+            var existingCart = _favorite.Products.FirstOrDefault(item => item.Id == product.Id);
 
-        //    //Дописать условие, чтобы при удалении продукта не выходить за границы
+            //Дописать условие, чтобы при удалении продукта не выходить за границы
 
-        //    if (_cart.CartItems[product.Id - 1].ItemQuantity == 1 && existingCart != null)
-        //    {
-        //        for (int i = 0; i < _cart.CartItems.Count; i++)
-        //        {
-        //            if (product.Id == _cart.CartItems[i].Product.Id)
-        //            {
-        //                _cart.CartItems.RemoveAt(i);
-        //            }
-        //        }
-        //    }
-        //    else
-        //    {
-        //        _cart.CartItems[product.Id - 1].ItemQuantity--;
-        //    }
-        //}
+            if (existingCart != null)
+            {
+                for (int i = 0; i < _favorite.Products.Count; i++)
+                {
+                    if (product.Id == _favorite.Products[i].Id)
+                    {
+                        _favorite.Products.RemoveAt(i);
+                    }
+                }
+            }
+        }
 
         public Favorite GetFavoriteItem()
         {
