@@ -14,6 +14,7 @@
                         <h5 class="card-title">@product.Name</h5>
                         <p clss = "cart-cost">@product.Cost.ToString("c")</p>
                         <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@product.Id" class="btn btn-primary">Добавить в корзину</a>
+                        <a asp-controller="Favorite" asp-action="AddToFavorite" asp-route-id="@product.Id" class="btn btn-primary">Добавить в избранное</a>
                       </div>
                     </div>
                     </a>

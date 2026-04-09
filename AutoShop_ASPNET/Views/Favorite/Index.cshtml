@@ -1,24 +1,26 @@
-﻿@model List<Favorite>
+﻿@model Favorite
 
 <div class = "container">
     <div class ="row">
-        @if (Model != null)
+        @if (Model.Product.Count != 0)
         {
-            @for (int i = 0; i < Model.Count; i++)
+            @for (int i = 0; i < Model.Product.Count; i++)
             {   
                 <div class = "col-4 mb-4">
-                    <a asp-controller="product" asp-action="index" asp-route-id="@Model[i].Product.Id" class="text-decoration-none text-dark">
+                    <a asp-controller="product" asp-action="index" asp-route-id="@Model.Product[i].Id" class="text-decoration-none text-dark">
                     <div class="card" style="width: 18rem;">
                       <img src="/img/stopPhoto.jpg" class="card-img-top" alt="...">
                       <div class="card-body">
-                        <h5 class="card-title">@Model[i].Product.Name</h5>
-                        <p clss = "cart-cost">@Model[i].Product.Cost.ToString("c")</p>
-                        <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model[i].Product.Id" class="btn btn-primary">Добавить в корзину</a>
+                        <h5 class="card-title">@Model.Product[i].Name</h5>
+                        <p clss = "cart-cost">@Model.Product[i].Cost.ToString("c")</p>
+                        <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@Model.Product[i].Id" class="btn btn-primary">Добавить в корзину</a>
+                        <a asp-controller="Favorite" asp-action="RemoveFromFavorite" asp-route-id="@Model.Product[i].Id" class="btn btn-primary">Убрать из избранного</a>
                       </div>
                     </div>
                     </a>
                 </div>
             }
+            <a asp-controller="Favorite" asp-action="ClearFavorite" class="btn btn-primary">Очистить избранное</a>
         }
         else
         {

@@ -2,6 +2,6 @@
 {
     public class Favorite
     {
-        public Product Product { get; set; }
+        public List<Product> Product { get; set; }
     }
 }
