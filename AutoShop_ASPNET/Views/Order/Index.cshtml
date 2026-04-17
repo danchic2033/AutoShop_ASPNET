@@ -74,39 +74,40 @@
                   <h3 class="fw-bold mb-5 mt-2 pt-1">Итог</h3>
                   <hr class="my-4">
 
+                  <form method = "post">
                   <h5 class="text-uppercase mb-3">Введите данные для доставки</h5>
 
                   <div class="mb-5">
                     <div data-mdb-input-init class="form-outline">
-                      <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
+                      <input type="text" id="form3Examplea2" class="form-control form-control-lg" name = "name"/>
                       <label class="form-label" for="form3Examplea2">Имя</label>
                     </div>
                   </div>
 
                   <div class="mb-5">
                     <div data-mdb-input-init class="form-outline">
-                      <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
+                      <input type="text" id="form3Examplea2" class="form-control form-control-lg" name = "address"/>
                       <label class="form-label" for="form3Examplea2">Адрес доставки</label>
                     </div>
                   </div>
 
                   <div class="mb-5">
                     <div data-mdb-input-init class="form-outline">
-                      <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
+                      <input type="text" id="form3Examplea2" class="form-control form-control-lg" name = "phoneNumber"/>
                       <label class="form-label" for="form3Examplea2">Телефон</label>
                     </div>
                   </div>
 
                   <div class="mb-5">
                     <div data-mdb-input-init class="form-outline">
-                      <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
+                      <input type="text" id="form3Examplea2" class="form-control form-control-lg" name = "dateDelivery"/>
                       <label class="form-label" for="form3Examplea2">Дата доставки</label>
                     </div>
                   </div>
 
                   <div class="mb-5">
                     <div data-mdb-input-init class="form-outline">
-                      <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
+                      <input type="text" id="form3Examplea2" class="form-control form-control-lg" name = "comment"/>
                       <label class="form-label" for="form3Examplea2">Комментарий</label>
                     </div>
                   </div>
@@ -118,9 +119,11 @@
                     <h5>@Model.TotalCost.ToString("c")</h5>
                   </div>
 
-                  <a asp-controller="Order" asp-action="SuccessOrder" class="btn btn-dark btn-block btn-lg"
+                  <button type ="submit" asp-controller="Order" asp-action="SuccessOrder" class="btn btn-dark btn-block btn-lg"
                     data-mdb-ripple-color="dark">Заказать
-                  </a>
+                  </button>
+
+                  </form>
 
                 </div>
               </div>
