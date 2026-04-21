@@ -11,9 +11,9 @@
 
 <div class="tab-content">
   <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-    <form>
+    <form method="post">
       <div class="text-center mb-3">
-        <p>Sign in with:</p>
+        <p>Авторизоваться с помощью:</p>
         <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
           <i class="fab fa-google"></i>
         </button>
@@ -23,11 +23,11 @@
         </button>
       </div>
 
-      <p class="text-center">or:</p>
+      <p class="text-center">или:</p>
 
       <!-- Email input -->
       <div data-mdb-input-init class="form-outline mb-4">
-        <input type="email" id="loginName" class="form-control" />
+        <input type="email" id="loginName" class="form-control" name="email"/>
         <label class="form-label" for="loginName">Введите почту или логин</label>
       </div>
 
@@ -54,7 +54,7 @@
       </div>
 
       <!-- Submit button -->
-      <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Войти в систему</button>
+      <button type="submit" asp-controller="Authorization" asp-action="Login" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">Войти в систему</button>
 
       <!-- Register buttons -->
       <div class="text-center">
@@ -65,7 +65,7 @@
   <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
     <form>
       <div class="text-center mb-3">
-        <p>Sign up with:</p>
+        <p>Войти с помощью:</p>
         <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
           <i class="fab fa-google"></i>
         </button>
@@ -75,7 +75,7 @@
         </button>
       </div>
 
-      <p class="text-center">or:</p>
+      <p class="text-center">или:</p>
 
       <!-- Name input -->
       <div data-mdb-input-init class="form-outline mb-4">
