@@ -1,5 +1,5 @@
 ﻿<div class="tab-content">
-    <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+    <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
         <form method="post">
             <div class="text-center mb-3">
                 <p>Войти с помощью:</p>
@@ -17,31 +17,31 @@
             <!-- Name input -->
             <div data-mdb-input-init class="form-outline mb-4">
                 <input type="text" id="registerName" class="form-control" />
-                <label class="form-label" for="registerName">Name</label>
+                <label class="form-label" for="registerName">Введите ваше имя</label>
             </div>
 
             <!-- Username input -->
             <div data-mdb-input-init class="form-outline mb-4">
                 <input type="text" id="registerUsername" class="form-control" />
-                <label class="form-label" for="registerUsername">Username</label>
+                <label class="form-label" for="registerUsername">Введите ваш ник</label>
             </div>
 
             <!-- Email input -->
             <div data-mdb-input-init class="form-outline mb-4">
                 <input type="email" id="registerEmail" class="form-control" />
-                <label class="form-label" for="registerEmail">Email</label>
+                <label class="form-label" for="registerEmail">Ваша почта</label>
             </div>
 
             <!-- Password input -->
             <div data-mdb-input-init class="form-outline mb-4">
                 <input type="password" id="registerPassword" class="form-control" />
-                <label class="form-label" for="registerPassword">Password</label>
+                <label class="form-label" for="registerPassword">Введите пароль</label>
             </div>
 
             <!-- Repeat Password input -->
             <div data-mdb-input-init class="form-outline mb-4">
                 <input type="password" id="registerRepeatPassword" class="form-control" />
-                <label class="form-label" for="registerRepeatPassword">Repeat password</label>
+                <label class="form-label" for="registerRepeatPassword">Повторите пароль</label>
             </div>
 
             <!-- Checkbox -->
@@ -54,8 +54,7 @@
             </div>
 
             <!-- Submit button -->
-            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-3">Sign in</button>
+            <button type="submit" asp-controller="Registration" asp-action="SignIn" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-3">Зарегистрироваться</button>
         </form>
     </div>
 </div>
-<!-- Pills content -->

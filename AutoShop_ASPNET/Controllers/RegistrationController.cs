@@ -8,5 +8,10 @@ namespace AutoShop_ASPNET.Controllers
         {
             return View("Index");
         }
+
+        public IActionResult SignIn()
+        {
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
