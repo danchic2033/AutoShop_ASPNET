@@ -1,4 +1,5 @@
-﻿using AutoShop_ASPNET.Repositories;
+﻿using AutoShop_ASPNET.Models;
+using AutoShop_ASPNET.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AutoShop_ASPNET.Controllers
@@ -32,6 +33,24 @@ namespace AutoShop_ASPNET.Controllers
         public IActionResult RemoveItem(int id)
         {
             _productsRepository.RemoveItemById(id);
+
+            return RedirectToAction("Products");
+        }
+
+        public IActionResult EditItem(int id)
+        {
+            var product = _productsRepository.TryGetById(id);
+
+            return View(product);
+        }
+
+        public IActionResult SaveItem(Product product)
+        {
+            var productEdit = _productsRepository.TryGetById(product.Id);
+
+            productEdit.Name = product.Name;
+            productEdit.Description = product.Description;
+            productEdit.Cost = product.Cost;
 
             return RedirectToAction("Products");
         }
