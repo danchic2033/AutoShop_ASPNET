@@ -1,4 +1,5 @@
 ﻿using AutoShop_ASPNET.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AutoShop_ASPNET.Repositories
 {
@@ -6,5 +7,8 @@ namespace AutoShop_ASPNET.Repositories
     {
         List<Product> GetAll();
         Product? TryGetById(int id);
+        List<Product> RemoveItemById(int id);
+
+        void AddItem(Product product);
     }
 }

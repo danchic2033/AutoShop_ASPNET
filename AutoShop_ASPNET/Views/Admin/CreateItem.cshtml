@@ -1,0 +1,65 @@
+﻿@model int
+
+<div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12">
+            <div class="card card-registration card-registration-2" style="border-radius: 15px;">
+                <div class="card-body p-0">
+                    <div class="row g-0">
+                        <div class="col">
+                            <div class="p-5">
+                                <div class="d-flex justify-content-between align-items-center mb-5">
+                                    <h1 class="fw-bold mb-0">Создание товара</h1>
+                                </div>
+                                <div class="col bg-body-tertiary">
+                                    <div class="p-5">
+                                        <h3 class="fw-bold mb-5 mt-2 pt-1">Введите данные для создания товара</h3>
+                                        <hr class="my-4">
+
+                                        <form method="post">
+                                            <div class="mb-5">
+                                                <div data-mdb-input-init class="form-outline">
+                                                    <input type="text" id="form3Examplea2" class="form-control form-control-lg" name="name" />
+                                                    <label class="form-label" for="form3Examplea2">Название товара</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-5">
+                                                <div data-mdb-input-init class="form-outline">
+                                                    <input type="text" id="form3Examplea2" class="form-control form-control-lg" name="description" />
+                                                    <label class="form-label" for="form3Examplea2">Описание товара</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-5">
+                                                <div data-mdb-input-init class="form-outline">
+                                                    <input type="text" id="form3Examplea2" class="form-control form-control-lg" name="cost" />
+                                                    <label class="form-label" for="form3Examplea2">Стоимость товара</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-5">
+                                                <div data-mdb-input-init class="form-outline">
+                                                    <input type="text" id="form3Examplea2" class="form-control form-control-lg" name="cost" />
+                                                    <label class="form-label" for="form3Examplea2">Введите id товара больше @Model на 1</label>
+                                                </div>
+                                            </div>
+
+                                            <hr class="my-4">
+                                            <button type="submit" asp-controller="Admin" asp-action="SaveItem" class="btn btn-dark btn-block btn-lg"
+                                                    data-mdb-ripple-color="dark">
+                                                Сохранить
+                                            </button>
+
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
