@@ -28,5 +28,12 @@ namespace AutoShop_ASPNET.Controllers
 
             return View(products);
         }
+
+        public IActionResult RemoveItem(int id)
+        {
+            _productsRepository.RemoveItemById(id);
+
+            return RedirectToAction("Products");
+        }
     }
 }

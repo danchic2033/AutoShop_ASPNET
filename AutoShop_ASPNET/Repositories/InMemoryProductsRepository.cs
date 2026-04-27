@@ -27,5 +27,11 @@ namespace AutoShop_ASPNET.Repositories
         {
             return _products.FirstOrDefault(p => p.Id == id);
         }
+
+        public List<Product> RemoveItemById(int id)
+        {
+            _products.RemoveAt(id);
+            return _products;
+        }
     }
 }
