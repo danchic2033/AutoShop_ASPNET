@@ -48,11 +48,25 @@ namespace AutoShop_ASPNET.Controllers
         {
             var productEdit = _productsRepository.TryGetById(product.Id);
 
-            productEdit.Name = product.Name;
-            productEdit.Description = product.Description;
-            productEdit.Cost = product.Cost;
+            if (productEdit != null)
+            {
+                productEdit.Name = product.Name;
+                productEdit.Description = product.Description;
+                productEdit.Cost = product.Cost;
+            }
+            else
+            {
+                _productsRepository.AddItem(product);
+            }
 
             return RedirectToAction("Products");
+        }
+
+        public IActionResult CreateItem()
+        {
+            var count = _productsRepository.GetAll().Count();
+
+            return View(count);
         }
     }
 }

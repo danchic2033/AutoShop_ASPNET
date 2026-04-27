@@ -33,5 +33,10 @@ namespace AutoShop_ASPNET.Repositories
             _products.RemoveAt(id);
             return _products;
         }
+
+        public void AddItem (Product product)
+        {
+            _products.Add(product);
+        }
     }
 }

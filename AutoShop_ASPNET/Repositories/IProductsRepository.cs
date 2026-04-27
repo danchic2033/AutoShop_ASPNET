@@ -8,5 +8,7 @@ namespace AutoShop_ASPNET.Repositories
         List<Product> GetAll();
         Product? TryGetById(int id);
         List<Product> RemoveItemById(int id);
+
+        void AddItem(Product product);
     }
 }
