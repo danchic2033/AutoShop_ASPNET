@@ -16,5 +16,11 @@ namespace AutoShop_ASPNET.Controllers
 
             return View(products);
         }
+        public IActionResult Search(string query)
+        {
+            var products = _productsRepository.TryGetByName(query);
+
+            return View("Index", products);
+        }
     }
 }

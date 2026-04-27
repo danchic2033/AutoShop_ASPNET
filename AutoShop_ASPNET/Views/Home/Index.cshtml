@@ -1,5 +1,17 @@
 ﻿@model List<Product>
 
+<form method ="post">
+<div class="row">
+    <div class="col-lg-8"></div>
+    <div class="col-lg-4">
+        <div class="input-group">
+            <input type="search" name="query" class="form-control rounded" placeholder="Поиск" aria-label="Search" />
+            <button type="submit" asp-controller="Home" asp-action="Search" class="btn btn-outline-primary">Найти</button>
+        </div>
+    </div>
+</div>
+</form>
+
 <div class = "container">
     <div class ="row">
         @if (Model != null)
