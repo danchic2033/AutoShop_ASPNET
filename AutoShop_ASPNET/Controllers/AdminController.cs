@@ -1,9 +1,15 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoShop_ASPNET.Repositories;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AutoShop_ASPNET.Controllers
 {
     public class AdminController : Controller
     {
+        private readonly IProductsRepository _productsRepository;
+        public AdminController(IProductsRepository productsRepository)
+        {
+            _productsRepository = productsRepository;
+        }
         public IActionResult Index()
         {
             return View();
@@ -18,7 +24,9 @@ namespace AutoShop_ASPNET.Controllers
         }
         public IActionResult Products()
         {
-            return View();
+            var products = _productsRepository.GetAll();
+
+            return View(products);
         }
     }
 }
