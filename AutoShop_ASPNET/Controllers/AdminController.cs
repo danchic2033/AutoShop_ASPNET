@@ -8,5 +8,17 @@ namespace AutoShop_ASPNET.Controllers
         {
             return View();
         }
+        public IActionResult Users()
+        {
+            return View();
+        }
+        public IActionResult Roles()
+        {
+            return View();
+        }
+        public IActionResult Products()
+        {
+            return View();
+        }
     }
 }
