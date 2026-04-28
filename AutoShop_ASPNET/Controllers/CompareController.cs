@@ -17,18 +17,21 @@ namespace AutoShop_ASPNET.Controllers
             var products = _compareRepository.GetCompare();
             return View(products);
         }
-        //public IActionResult RemoveFromCompare(int id)
-        //{
-        //    _compareRepository.RemoveItemFromCompare();
 
-        //    return RedirectToAction("Index", products);
-        //}
+        public IActionResult RemoveFromCompare(int id)
+        {
+            _compareRepository.RemoveItemFromCompare(id);
 
-        public IActionResult AddToCompare(int id)
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult AddItemToCompare(int id)
         {
             var products = _productsRepository.TryGetById(id);
 
-            return RedirectToAction("Index", products);
+            _compareRepository.AddItemToCompare(products);
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

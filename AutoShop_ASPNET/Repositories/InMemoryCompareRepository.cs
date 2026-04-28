@@ -11,13 +11,16 @@ namespace AutoShop_ASPNET.Repositories
             if (_compare == null)
             {
                 _compare = new Compare();
+                _compare.Products = new List<Product>();
             }
             _compare.Products.Add(product);
         }
 
-        public void RemoveItemFromCompare(Product product)
+        public void RemoveItemFromCompare(int id)
         {
-            if (_compare.Products.Contains(product))
+            var product = _compare.Products.FirstOrDefault(item => item.Id == id);
+
+            if(product != null)
             {
                 _compare.Products.Remove(product);
             }

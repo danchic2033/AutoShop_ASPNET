@@ -7,6 +7,6 @@ namespace AutoShop_ASPNET.Repositories
         void AddItemToCompare(Product product);
         Compare GetCompare();
         void RemoveCompare();
-        void RemoveItemFromCompare(Product product);
+        void RemoveItemFromCompare(int id);
     }
 }

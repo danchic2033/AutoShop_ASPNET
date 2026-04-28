@@ -1,10 +1,10 @@
-﻿@model List<Product>
+﻿@model Compare
 
 <div class="container">
     <div class="row">
-        @if (Model != null)
+        @if (Model != null && Model.Products.Count != 0)
         {
-            @foreach (var product in Model)
+            @foreach (var product in Model.Products)
             {
                 <div class="col-4 mb-4">
                     <a asp-controller="product" asp-action="index" asp-route-id="@product.Id" class="text-decoration-none text-dark">
