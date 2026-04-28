@@ -13,6 +13,7 @@ namespace AutoShop_ASPNET
             builder.Services.AddSingleton<IProductsRepository ,InMemoryProductsRepository>();
             builder.Services.AddSingleton<ICartRepository ,InMemoryCartRepository>();
             builder.Services.AddSingleton<IFavoriteRepository, InMemoryFavoriteRepository>();
+            builder.Services.AddSingleton<ICompareRepository ,InMemoryCompareRepository>();
 
             var app = builder.Build();
 

@@ -1,0 +1,29 @@
+﻿@model Compare
+
+<div class="container">
+    <div class="row">
+        @if (Model != null && Model.Products.Count != 0)
+        {
+            @foreach (var product in Model.Products)
+            {
+                <div class="col-4 mb-4">
+                    <a asp-controller="product" asp-action="index" asp-route-id="@product.Id" class="text-decoration-none text-dark">
+                        <div class="card" style="width: 18rem;">
+                            <img src="/img/stopPhoto.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">@product.Name</h5>
+                                <p clss="cart-cost">@product.Cost.ToString("c")</p>
+                                <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@product.Id" class="btn btn-primary">Добавить в корзину</a>
+                                <a asp-controller="Compare" asp-action="RemoveFromCompare" asp-route-id="@product.Id" class="btn btn-primary">Удалить из сравнения</a>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        }
+        else
+        {
+            <h5>Нет товаров для отображения</h5>
+        }
+    </div>
+</div>
