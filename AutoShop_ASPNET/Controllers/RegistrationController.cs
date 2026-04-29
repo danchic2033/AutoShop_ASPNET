@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoShop_ASPNET.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Net;
 
 namespace AutoShop_ASPNET.Controllers
 {
@@ -9,8 +11,20 @@ namespace AutoShop_ASPNET.Controllers
             return View("Index");
         }
 
-        public IActionResult SignIn()
+        [HttpPost]
+        public IActionResult SignIn(Registration registration)
         {
+
+            if (registration.Login == registration.Password)
+            {
+                ModelState.AddModelError("", "Логин и пароль должны отличаться");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(registration);
+            }
+
             return RedirectToAction("Index", "Home");
         }
     }

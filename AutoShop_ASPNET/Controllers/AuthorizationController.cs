@@ -10,8 +10,19 @@ namespace AutoShop_ASPNET.Controllers
             return View("Index");
         }
 
-        public IActionResult Login(UserProfile userProfile)
+        [HttpPost]
+        public IActionResult Login(Authorization authorization)
         {
+            if (authorization.Login == authorization.Password)
+            {
+                ModelState.AddModelError("", "Логин и пароль должны отличаться");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(authorization);
+            }
+
             return RedirectToAction("Index", "Home");
         }
     }
