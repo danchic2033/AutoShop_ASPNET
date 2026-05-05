@@ -13,7 +13,7 @@ namespace AutoShop_ASPNET.Models
 
         [Display(Name = "Стоимость товара", Prompt = "Введите стоимость товара")]
         [Required(ErrorMessage = "Нужно ввести стоимость товара")]
-        [StringLength(1000000, MinimumLength = 0, ErrorMessage = "Стоимость товара должна быть от {2} до {1} рублей")]
+        [Range(0, 1000000, ErrorMessage = "Стоимость товара должна быть от {1} до {2} рублей")]
         public decimal Cost { get; set; }
 
         [Display(Name = "Описание", Prompt = "Введите описание товара")]
