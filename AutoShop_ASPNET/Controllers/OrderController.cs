@@ -22,7 +22,13 @@ namespace AutoShop_ASPNET.Controllers
         public IActionResult Index()
         {
             var cart = _cartRepository.GetCart();
-            return View(cart);
+
+            var order = new Order()
+            {
+                CartItems = cart?.CartItems ?? [],
+            };
+
+            return View(order);
         }
     }
 }
