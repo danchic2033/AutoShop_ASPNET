@@ -17,24 +17,29 @@
                                 <hr class="my-4">
 
                                 <form method="post">
+
+                                <div class="text-danger fw-bold text-uppercase" asp-validation-summary="All"></div>
                                     <div class="mb-5">
                                         <div data-mdb-input-init class="form-outline">
-                                            <input type="text" id="form3Examplea2" class="form-control form-control-lg" name="name" />
-                                            <label class="form-label" for="form3Examplea2">Название товара</label>
+                                            <input type="text" id="Name" asp-for="Name" class="form-control form-control-lg"/>
+                                            <label class="form-label" asp-for="Name">Название товара</label>
+                                            <span asp-validation-for="Name" class="text-danger"></span>
                                         </div>
                                     </div>
 
                                     <div class="mb-5">
                                         <div data-mdb-input-init class="form-outline">
-                                            <input type="text" id="form3Examplea2" class="form-control form-control-lg" name="description" />
-                                            <label class="form-label" for="form3Examplea2">Описание товара</label>
+                                            <input type="text" id="Description" asp-for="Description" class="form-control form-control-lg"/>
+                                            <label class="form-label" asp-for="Description">Описание товара</label>
+                                            <span asp-validation-for="Description" class="text-danger"></span>
                                         </div>
                                     </div>
 
                                     <div class="mb-5">
                                         <div data-mdb-input-init class="form-outline">
-                                            <input type="text" id="form3Examplea2" class="form-control form-control-lg" name="cost" />
-                                            <label class="form-label" for="form3Examplea2">Стоимость товара</label>
+                                            <input type="text" id="Cost" asp-for="Cost" class="form-control form-control-lg"/>
+                                            <label class="form-label" asp-for="Cost">Стоимость товара</label>
+                                            <span asp-validation-for="Cost" class="text-danger"></span>
                                         </div>
                                     </div>
                                     <hr class="my-4">

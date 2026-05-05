@@ -64,9 +64,11 @@ namespace AutoShop_ASPNET.Controllers
 
         public IActionResult CreateItem()
         {
-            var count = _productsRepository.GetAll().Count();
+            var products = _productsRepository.GetAll();
 
-            return View(count);
+            var lastProduct = products.TakeLast(1).FirstOrDefault();
+
+            return View(lastProduct);
         }
     }
 }

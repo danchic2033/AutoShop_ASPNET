@@ -1,4 +1,4 @@
-﻿@model int
+﻿@model Product
 
 <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
@@ -19,29 +19,33 @@
                                         <form method="post">
                                             <div class="mb-5">
                                                 <div data-mdb-input-init class="form-outline">
-                                                    <input type="text" id="form3Examplea2" class="form-control form-control-lg" name="name" />
-                                                    <label class="form-label" for="form3Examplea2">Название товара</label>
+                                                    <input type="text" id="Name" asp-for="Name" class="form-control form-control-lg"/>
+                                                    <label class="form-label" asp-for="Name">Введите название товара</label>
+                                                    <span asp-validation-for="Name" class="text-danger"></span>
                                                 </div>
                                             </div>
 
                                             <div class="mb-5">
                                                 <div data-mdb-input-init class="form-outline">
-                                                    <input type="text" id="form3Examplea2" class="form-control form-control-lg" name="description" />
-                                                    <label class="form-label" for="form3Examplea2">Описание товара</label>
+                                                    <input type="text" id="Description" asp-for="Description" class="form-control form-control-lg" />
+                                                    <label class="form-label" asp-for="Description">Введите описание товара</label>
+                                                    <span asp-validation-for="Description" class="text-danger"></span>
                                                 </div>
                                             </div>
 
                                             <div class="mb-5">
                                                 <div data-mdb-input-init class="form-outline">
-                                                    <input type="text" id="form3Examplea2" class="form-control form-control-lg" name="cost" />
-                                                    <label class="form-label" for="form3Examplea2">Стоимость товара</label>
+                                                    <input type="text" id="Cost" asp-for="Cost" class="form-control form-control-lg"/>
+                                                    <label class="form-label" asp-for="Cost">Стоимость товара</label>
+                                                    <span asp-validation-for="Cost" class="text-danger"></span>
                                                 </div>
                                             </div>
 
                                             <div class="mb-5">
                                                 <div data-mdb-input-init class="form-outline">
-                                                    <input type="text" id="form3Examplea2" class="form-control form-control-lg" name="cost" />
-                                                    <label class="form-label" for="form3Examplea2">Введите id товара больше @Model на 1</label>
+                                                    <input type="text" id="Id" asp-for="Id" class="form-control form-control-lg"/>
+                                                    <label class="form-label" asp-for="Id">Введите id товара больше @Model.Id на 1</label>
+                                                    <span asp-validation-for="Id" class="text-danger"></span>
                                                 </div>
                                             </div>
 
