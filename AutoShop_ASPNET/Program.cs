@@ -14,6 +14,7 @@ namespace AutoShop_ASPNET
             builder.Services.AddSingleton<ICartRepository ,InMemoryCartRepository>();
             builder.Services.AddSingleton<IFavoriteRepository, InMemoryFavoriteRepository>();
             builder.Services.AddSingleton<ICompareRepository ,InMemoryCompareRepository>();
+            builder.Services.AddSingleton<IOrderRepository ,InMemoryOrderRepository>();
 
             var app = builder.Build();
 
