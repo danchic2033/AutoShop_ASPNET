@@ -7,14 +7,17 @@ namespace AutoShop_ASPNET.Controllers
     public class OrderController : Controller
     {
         private readonly ICartRepository _cartRepository;
-        public OrderController (ICartRepository cartRepository)
+        private readonly IOrderRepository _orderRepository;
+        public OrderController (ICartRepository cartRepository, IOrderRepository orderRepository)
         {
             _cartRepository = cartRepository;
+            _orderRepository = orderRepository;
         }
 
         [HttpPost]
-        public IActionResult SuccessOrder(DeliveryUserInfo deliveryUserInfo)
+        public IActionResult SuccessOrder(Order order)
         {
+            _orderRepository.AddOrder(order);
             _cartRepository.RemoveCart();
             return View("SuccessOrder");
         }

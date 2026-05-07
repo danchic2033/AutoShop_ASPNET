@@ -10,5 +10,14 @@ namespace AutoShop_ASPNET.Repositories
         {
             return _order;
         }
+
+        public void AddOrder(Order order)
+        {
+            if (_order == null)
+            {
+                _order = new Order();
+            }
+            _order = order;
+        }
     }
 }

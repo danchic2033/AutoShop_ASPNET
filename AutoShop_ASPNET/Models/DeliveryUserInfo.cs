@@ -25,7 +25,7 @@ namespace AutoShop_ASPNET.Models
         [Required(ErrorMessage = "Нужно ввести дату доставки")]
         [DataType(DataType.Date)]
         [DateRange]
-        public string DateDelivery { get; set; }
+        public DateTime DateDelivery { get; set; }
 
         [Display(Name = "Комментарий к заказу", Prompt = "Напишите комментарий, если нужно сообщить деатали курьеру")]
         [StringLength(512)]
