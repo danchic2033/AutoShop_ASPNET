@@ -4,7 +4,7 @@ namespace AutoShop_ASPNET.Repositories
 {
     public interface IOrderRepository
     {
-        Order GetOrders();
+        List<Order> GetOrders();
         void AddOrder(Order order);
     }
 }

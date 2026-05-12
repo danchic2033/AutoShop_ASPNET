@@ -1,4 +1,4 @@
-﻿@model Order
+﻿@model List<Order>
 
 <div class="d-flex align-items-center justify-content-between" style="width: 100%;">
     <div class="d-grid gap-2 col-6">
@@ -24,18 +24,22 @@
         </tr>
     </thead>
     <tbody>
-        @if(Model != null && Model.CartItems.Count != 0)
+        @if(Model != null && Model.Count != 0)
         {
-        @for(int i = 0; i < Model.CartItems.Count; i++)
+        @for(int i = 0; i < Model.Count; i++)
         {
+            @for(int j = 0; j < Model[i].CartItems.Count; j++)
+            {
         <tr>
-            <th scope="row">@(i++)</th>
-            <td>@Model.TotalCost</td>
+            <th scope="row">@(i + 1)</th>
+            <td>@Model[i].TotalCost</td>
             <td>@("Создан")</td>
-            <td>@Model.UserId</td>
-            <td>@Model.DeliveryUserInfo.DateDelivery</td>
-            <td>@Model.DateTimeCreation</td>
+            <td>@Model[i].UserId</td>
+            <td>@Model[i].DeliveryUserInfo.DateDelivery</td>
+            <td>@Model[i].DateTimeCreation</td>
+            <td><a class="btn btn-primary" asp-controller="Admin" asp-action="OrderInformation" type="button">Подробнее</a></td>
         </tr>
+        }
         }
         }
         else

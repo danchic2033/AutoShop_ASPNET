@@ -4,9 +4,9 @@ namespace AutoShop_ASPNET.Repositories
 {
     public class InMemoryOrderRepository : IOrderRepository
     {
-        private Order _order;
+        private List<Order> _order;
 
-        public Order GetOrders()
+        public List<Order> GetOrders()
         {
             return _order;
         }
@@ -15,9 +15,9 @@ namespace AutoShop_ASPNET.Repositories
         {
             if (_order == null)
             {
-                _order = new Order();
+                _order = new List<Order>();
             }
-            _order = order;
+            _order.Add(order);
         }
     }
 }

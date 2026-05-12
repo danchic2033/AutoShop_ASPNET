@@ -17,6 +17,10 @@ namespace AutoShop_ASPNET.Controllers
         [HttpPost]
         public IActionResult SuccessOrder(Order order)
         {
+            var cart = _cartRepository.GetCart();
+
+            order.CartItems = cart.CartItems.ToList();
+
             _orderRepository.AddOrder(order);
             _cartRepository.RemoveCart();
             return View("SuccessOrder");

@@ -19,6 +19,13 @@ namespace AutoShop_ASPNET.Controllers
 
             return View(orders);
         }
+        public IActionResult OrderInformation()
+        {
+            var orders = _orderRepository.GetOrders();
+
+            return View(orders);
+        }
+
         public IActionResult Users()
         {
             return View();
