@@ -1,4 +1,6 @@
-﻿<div class="d-flex align-items-center justify-content-between" style="width: 100%;">
+﻿@model List<Order>
+
+<div class="d-flex align-items-center justify-content-between" style="width: 100%;">
     <div class="d-grid gap-2 col-6">
         <a class="btn btn-primary" asp-controller="Admin" asp-action="Index" type="button">Заказы</a>
         <a class="btn btn-primary" asp-controller="Admin" asp-action="Users" type="button">Пользователи</a>
@@ -9,3 +11,42 @@
         <span class="text" style="font-size: 1.5rem;">Заказы</span>
     </div>
 </div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Сумма</th>
+            <th scope="col">Статус</th>
+            <th scope="col">Пользователь</th>
+            <th scope="col">Дата</th>
+            <th scope="col">Время</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model != null && Model.Count != 0)
+        {
+        @for(int i = 0; i < Model.Count; i++)
+        {
+            @for(int j = 0; j < Model[i].CartItems.Count; j++)
+            {
+        <tr>
+            <th scope="row">@(i + 1)</th>
+            <td>@Model[i].TotalCost</td>
+            <td>@("Создан")</td>
+            <td>@Model[i].UserId</td>
+            <td>@Model[i].DeliveryUserInfo.DateDelivery</td>
+            <td>@Model[i].DateTimeCreation</td>
+            <td><a class="btn btn-primary" asp-controller="Admin" asp-action="OrderInformation" type="button">Подробнее</a></td>
+        </tr>
+        }
+        }
+        }
+        else
+        {
+        <tr>
+            <td>@("Нет заказов")</td>
+        </tr>
+        }
+    </tbody>
+</table>

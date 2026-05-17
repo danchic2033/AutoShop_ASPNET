@@ -7,14 +7,31 @@ namespace AutoShop_ASPNET.Controllers
     public class AdminController : Controller
     {
         private readonly IProductsRepository _productsRepository;
-        public AdminController(IProductsRepository productsRepository)
+        private readonly IOrderRepository _orderRepository;
+        public AdminController(IProductsRepository productsRepository, IOrderRepository orderRepository)
         {
             _productsRepository = productsRepository;
+            _orderRepository = orderRepository;
         }
         public IActionResult Index()
         {
-            return View();
+            var orders = _orderRepository.GetOrders();
+
+            return View(orders);
         }
+
+        public IActionResult UpdateOrderStatus(Guid orderId, OrderStatus status)
+        {
+            _orderRepository.UpdateStatus(orderId, status);
+            return RedirectToAction(nameof(Index));
+        }
+        public IActionResult OrderInformation(Guid orderId)
+        {
+            var order = _orderRepository.TryGetById(orderId);
+
+            return View(order);
+        }
+
         public IActionResult Users()
         {
             return View();
