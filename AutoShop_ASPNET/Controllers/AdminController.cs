@@ -19,6 +19,12 @@ namespace AutoShop_ASPNET.Controllers
 
             return View(orders);
         }
+
+        public IActionResult UpdateOrderStatus(Guid orderId, OrderStatus status)
+        {
+            _orderRepository.UpdateStatus(orderId, status);
+            return RedirectToAction(nameof(Index));
+        }
         public IActionResult OrderInformation(Guid orderId)
         {
             var order = _orderRepository.TryGetById(orderId);
