@@ -8,10 +8,12 @@ namespace AutoShop_ASPNET.Controllers
     {
         private readonly IProductsRepository _productsRepository;
         private readonly IOrderRepository _orderRepository;
-        public AdminController(IProductsRepository productsRepository, IOrderRepository orderRepository)
+        private readonly IRoleRepository _roleRepository;
+        public AdminController(IProductsRepository productsRepository, IOrderRepository orderRepository, IRoleRepository roleRepository)
         {
             _productsRepository = productsRepository;
             _orderRepository = orderRepository;
+            _roleRepository = roleRepository;
         }
         public IActionResult Index()
         {
@@ -36,9 +38,41 @@ namespace AutoShop_ASPNET.Controllers
         {
             return View();
         }
-        public IActionResult Roles()
+
+        public IActionResult AddRole()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddRole(Role role)
+        {
+            if (_roleRepository.TryGetByName(role.Name) != null)
+            {
+                ModelState.AddModelError("", "Такая роль уже существует!");
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(role);
+            }
+
+            _roleRepository.Add(role);
+
+            return RedirectToAction(nameof(Roles));
+        }
+
+        public IActionResult DeleteRole(Guid roleId)
+        {
+            _roleRepository.Remove(roleId);
+
+            return RedirectToAction(nameof(Roles));
+        }
+
+        public IActionResult Roles()
+        {
+            var roles = _roleRepository.GetAll();
+            return View(roles);
         }
         public IActionResult Products()
         {
