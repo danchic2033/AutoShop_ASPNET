@@ -6,5 +6,7 @@ namespace AutoShop_ASPNET.Repositories
     {
         List<Order> GetOrders();
         void AddOrder(Order order);
+        void UpdateStatus(Guid orderId, OrderStatus status);
+        Order TryGetById(Guid orderId);
     }
 }

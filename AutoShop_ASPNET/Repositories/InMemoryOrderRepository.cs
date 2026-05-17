@@ -19,5 +19,20 @@ namespace AutoShop_ASPNET.Repositories
             }
             _order.Add(order);
         }
+
+        public void UpdateStatus(Guid orderId, OrderStatus status)
+        {
+            var existingOrder = TryGetById(orderId);
+
+            if (existingOrder != null)
+            {
+                existingOrder.Status = status;
+            }
+        }
+
+        public Order TryGetById(Guid orderId)
+        {
+            return _order.FirstOrDefault(o => o.Id == orderId);
+        }
     }
 }

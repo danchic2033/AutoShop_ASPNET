@@ -4,7 +4,17 @@
 }
 
 <div class="row mt-3">
-    @await Html.PartialAsync("SideBar")
+    <div class="d-flex align-items-center justify-content-between" style="width: 100%;">
+        <div class="d-grid gap-2 col-6">
+            <a class="btn btn-primary" asp-controller="Admin" asp-action="Index" type="button">Заказы</a>
+            <a class="btn btn-primary" asp-controller="Admin" asp-action="Users" type="button">Пользователи</a>
+            <a class="btn btn-primary" asp-controller="Admin" asp-action="Roles" type="button">Роли</a>
+            <a class="btn btn-primary" asp-controller="Admin" asp-action="Products" type="button">Товары</a>
+        </div>
+        <div class="ms-3">
+            <span class="text" style="font-size: 1.5rem;">Заказы</span>
+        </div>
+    </div>
 
 
     <div class="col-9 mb-3">
@@ -15,7 +25,7 @@
 
             @if (Model != null)
             {
-                <input type="hidden" name="Id" value="ID_ЗАКАЗА" />
+                <input type="hidden" name="Id" value="@Model.Id" />
 
                 <table class="table table-responsive mb-5 caption-top">
                     <tr>
@@ -25,35 +35,35 @@
                             <table class="table table-hover">
                                 <tr>
                                     <td class="w-25"><span>ID</span></td>
-                                    <td class="w-auto">ID_ЗАКАЗА</td>
+                                    <td class="w-auto">@Model.Id</td>
                                 </tr>
                                 <tr>
                                     <td class="w-25"><span>Стоимость</span></td>
-                                    <td class="fw-bold w-auto">СУММА_ЗАКАЗА</td>
+                                    <td class="fw-bold w-auto">@Model.TotalCost</td>
                                 </tr>
                                 <tr>
                                     <td class="w-25"><span>Количество позиций</span></td>
-                                    <td class="w-auto">КОЛИЧЕСТВО_ПОЗИЦИЙ_В_ЗАКАЗЕ</td>
+                                    <td class="w-auto">@Model.CartItems.Count</td>
                                 </tr>
                                 <tr>
                                     <td class="w-25"><span>Количество товаров</span></td>
-                                    <td class="w-auto">КОЛИЧЕСТВО_ТОВАРОВ_В_ЗАКАЗЕ</td>
+                                    <td class="w-auto">@Model.TotalQuantity</td>
                                 </tr>
                                 <tr>
                                     <td class="w-25"><span>Статус заказа</span></td>
                                     <td class="w-auto">
                                         <p>
-                                            @* <select asp-for="СТАТУС_ЗАКАЗА"
+                                            <select asp-for="@Model.Status"
                                                     class="form-select list-group-item-success w-50"
                                                     asp-items="@Html.GetEnumSelectList<OrderStatus>()">
-                                            </select> *@
+                                            </select>
                                         </p>
 
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="w-25"><span>Время создания заказа</span></td>
-                                    <td class="w-auto">ДАТА_И_ВРЕМЯ_СОЗДАНИЯ_ЗАКАЗА</td>
+                                    <td class="w-auto">@Model.DateTimeCreation.Date</td>
                                 </tr>
                             </table>
                         </td>
@@ -64,7 +74,7 @@
                             <table class="table table-hover">
                                 <tr>
                                     <td class="w-25"><span>ID</span></td>
-                                    <td class="w-auto">ПОЛЬЗОВАТЕЛЬ</td>
+                                    <td class="w-auto">@Model.UserId</td>
                                 </tr>
                             </table>
                         </td>
@@ -75,27 +85,27 @@
                             <table class="table table-hover p-0 m-0">
                                 <tr>
                                     <td class="w-25"><span>ID</span></td>
-                                    <td class="w-auto">ID_ПОКУПАТЕЛЯ</td>
+                                    <td class="w-auto">@("ID пользователя")</td>
                                 </tr>
                                 <tr>
                                     <td class="w-25"><span>Имя</span></td>
-                                    <td class="w-auto">ИМЯ_ПОКУПАТЕЛЯ</td>
+                                    <td class="w-auto">@Model.DeliveryUserInfo.Name</td>
                                 </tr>
                                 <tr>
                                     <td class="w-25"><span>Телефон</span></td>
-                                    <td class="w-auto">ТЕЛЕФОН_ПОКУПАТЕЛЯ</td>
+                                    <td class="w-auto">@Model.DeliveryUserInfo.PhoneNumber</td>
                                 </tr>
                                 <tr>
                                     <td class="w-25"><span>Адрес</span></td>
-                                    <td class="w-auto">АДРЕС_ПОКУПАТЕЛЯ</td>
+                                    <td class="w-auto">@Model.DeliveryUserInfo.Address</td>
                                 </tr>
                                 <tr>
                                     <td class="w-25"><span>Дата доставки</span></td>
-                                    <td class="w-auto">ДАТА_ДОСТАВКИ_ЗАКАЗА</td>
+                                    <td class="w-auto">@Model.DeliveryUserInfo.DateDelivery</td>
                                 </tr>
                                 <tr>
                                     <td class="w-25"><span>Комментарий</span></td>
-                                    <td class="w-auto">КОММЕНТАРИЙ</td>
+                                    <td class="w-auto">@Model.DeliveryUserInfo.Comment</td>
                                 </tr>
                             </table>
                         </td>
@@ -119,10 +129,10 @@
                                     {
                                         <tr align="center" class="align-baseline">
                                             <td class="fw-bold">@(i + 1)</td>
-                                            <td align="left">НАИМЕНОВАНИЕ_ТОВАРА</td>
-                                            <td align="left">ЦЕНА_ТОВАРА</td>
-                                            <td>КОЛИЧЕСТВО_ТОВАРА</td>
-                                            <td class="fw-bold">СТОИМОСТЬ_ТОВАРА</td>
+                                            <td align="left">@Model.CartItems[i].Product.Name</td>
+                                            <td align="left">@Model.CartItems[i].Product.Cost</td>
+                                            <td>@Model.CartItems[i].ItemQuantity</td>
+                                            <td class="fw-bold">@Model.CartItems[i].ItemCost</td>
                                         </tr>
                                     }
                                 </tbody>
@@ -132,10 +142,10 @@
                 </table>
 
                 <div class="text-center mt-5">
-                    <button class="btn btn-outline-success" type="ОТПРАВКА_ДАННЫХ_ФОРМЫ"
-                            asp-controller="КОНТРОЛЛЕР"
-                            asp-action="МЕТОД_КОНТРОЛЛЕРА"
-                            asp-route-orderId=ID_ТОВАРА>
+                    <button class="btn btn-outline-success" type="submit"
+                            asp-controller="Admin"
+                            asp-action="UpdateOrderStatus"
+                            asp-route-orderId=@Model.Id>
                         Обновить статус
                     </button>
                 </div>

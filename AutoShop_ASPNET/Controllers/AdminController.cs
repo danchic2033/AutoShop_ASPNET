@@ -19,11 +19,11 @@ namespace AutoShop_ASPNET.Controllers
 
             return View(orders);
         }
-        public IActionResult OrderInformation()
+        public IActionResult OrderInformation(Guid orderId)
         {
-            var orders = _orderRepository.GetOrders();
+            var order = _orderRepository.TryGetById(orderId);
 
-            return View(orders);
+            return View(order);
         }
 
         public IActionResult Users()
