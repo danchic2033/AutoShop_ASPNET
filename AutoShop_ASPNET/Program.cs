@@ -14,7 +14,7 @@ namespace AutoShop_ASPNET
                         .WriteTo.Console()
                         .CreateLogger();
 
-            builder.Host.UseSerilog(Log.Logger);
+            builder.Host.UseSerilog();
 
 
             // Add services to the container.
