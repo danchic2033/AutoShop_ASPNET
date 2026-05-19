@@ -1,4 +1,5 @@
 using AutoShop_ASPNET.Repositories;
+using Serilog;
 
 namespace AutoShop_ASPNET
 {
@@ -7,6 +8,16 @@ namespace AutoShop_ASPNET
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
+
+            Log.Logger = new LoggerConfiguration()
+                        .MinimumLevel.Information()
+                        .WriteTo.Console()
+                        .WriteTo.File("logs/log.json", rollingInterval: RollingInterval.Day)
+                        .CreateLogger();
+                        
+
+            builder.Host.UseSerilog();
+
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
@@ -18,6 +29,8 @@ namespace AutoShop_ASPNET
             builder.Services.AddSingleton<IRoleRepository ,InMemoryRoleRepository>();
 
             var app = builder.Build();
+
+            app.UseSerilogRequestLogging();
 
             app.UseHttpsRedirection();
             app.UseRouting();
