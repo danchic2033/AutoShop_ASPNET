@@ -12,7 +12,9 @@ namespace AutoShop_ASPNET
             Log.Logger = new LoggerConfiguration()
                         .MinimumLevel.Information()
                         .WriteTo.Console()
+                        .WriteTo.File("logs/log.json", rollingInterval: RollingInterval.Day)
                         .CreateLogger();
+                        
 
             builder.Host.UseSerilog();
 
